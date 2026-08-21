@@ -21,6 +21,7 @@
   var PAUSE_PATH = "M6 5h4v14H6zM14 5h4v14h-4z";
 
   var timeline = null;
+  var prompts = [];
   var total = 0;
   var segments = [];
 
@@ -38,6 +39,8 @@
     })
     .then(function (manifest) {
       timeline = manifest.timeline;
+      prompts = manifest.positionPrompts || [];
+      fillPositionList();
       total = timeline.reduce(function (acc, entry) {
         return Math.max(acc, entry.startSeconds + entry.durationSeconds);
       }, 0);
@@ -50,6 +53,22 @@
       trackEl.style.display = "none";
       detailEl.textContent = "Position readout unavailable. The signal still plays normally.";
     });
+
+  // The positions come from the generator's manifest, not from a list written out again here.
+  // The app doing the recording reads the same five strings, so the two cannot give different
+  // instructions.
+  function fillPositionList() {
+    var list = document.getElementById("positions");
+    if (!list || !prompts.length) return;
+    list.innerHTML = "";
+    prompts.forEach(function (prompt, index) {
+      var item = document.createElement("li");
+      item.innerHTML = "<strong>Position " + (index + 1) + ".</strong> " + prompt;
+      list.appendChild(item);
+    });
+    var fallback = document.getElementById("positions-fallback");
+    if (fallback) fallback.remove();
+  }
 
   function buildTrack() {
     trackEl.innerHTML = "";
@@ -82,7 +101,8 @@
     if (entry.kind === "noise") {
       phaseEl.className = "phase noise";
       phaseEl.textContent = "Position " + entry.position + ".";
-      detailEl.textContent = "Hold still. " + left + " s left in this position.";
+      var where = prompts[entry.position - 1];
+      detailEl.textContent = (where ? where + " " : "") + "Hold still, " + left + " s left.";
       return;
     }
     phaseEl.className = "phase";
@@ -95,9 +115,17 @@
     } else {
       var next = timeline[found.index + 1];
       phaseEl.textContent = "Silence.";
-      detailEl.textContent = next && next.kind === "marker"
-        ? "Move to the next position now."
-        : "Waiting.";
+      if (next && next.kind === "marker") {
+        // Name the position being moved to, rather than just saying to move.
+        var upcoming = timeline[found.index + 2];
+        var number = upcoming && upcoming.position ? upcoming.position : null;
+        var where = number ? prompts[number - 1] : null;
+        detailEl.textContent = number
+          ? "Move to position " + number + ". " + (where || "")
+          : "Move to the next position now.";
+      } else {
+        detailEl.textContent = "Waiting.";
+      }
     }
   }
 

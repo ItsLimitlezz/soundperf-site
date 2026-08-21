@@ -43,6 +43,13 @@
     }
   ],
   "noiseSegmentSeconds": 60,
+  "positionPrompts": [
+    "Centre, at ear height.",
+    "About 15 cm to the left.",
+    "About 15 cm to the right.",
+    "About 15 cm up.",
+    "About 15 cm forward."
+  ],
   "rmsDbFS": -20,
   "segmentCount": 5,
   "timeline": [
