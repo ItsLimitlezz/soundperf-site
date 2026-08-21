@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Download the test signal. SoundPerf.</title>
+<meta name="description" content="WAV test signal files for a USB stick, an SD card, or any other playback path. With the guidance that stops a head unit refusing them.">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="mark"></span>SoundPerf<span class="provisional">working name</span></a>
+    <nav class="site">
+      <a href="index.html">What this is</a>
+      <a href="play.html">Play</a>
+      <a href="download.html" class="current">Download</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <h1>Download the signal.</h1>
+  <p class="lead">
+    Five minutes and 28 seconds. Ten seconds of midrange noise to set volume with, then five bursts of
+    pink noise, one for each microphone position. Every burst is announced by a marker the app listens for.
+  </p>
+
+  <h2>Files.</h2>
+  <div class="files" id="files">
+
+    <div class="file preferred" data-file="test-signal-48k.wav">
+      <span class="name">test-signal-48k.wav</span>
+      <a class="btn" href="https://github.com/ItsLimitlezz/soundperf-site/releases/download/signals-v1/test-signal-48k.wav" download>Download</a>
+      <span class="why">
+        48 kHz, stereo, 16 bit. Start here. Both channels carry the same signal.
+        <span class="meta" data-meta></span>
+      </span>
+    </div>
+
+    <div class="file" data-file="test-signal-44k.wav">
+      <span class="name">test-signal-44k.wav</span>
+      <a class="btn secondary" href="https://github.com/ItsLimitlezz/soundperf-site/releases/download/signals-v1/test-signal-44k.wav" download>Download</a>
+      <span class="why">
+        44.1 kHz. For older head units that will not play 48 kHz, or that resample it badly.
+        <span class="meta" data-meta></span>
+      </span>
+    </div>
+
+    <div class="file" data-file="test-signal-left.wav">
+      <span class="name">test-signal-left.wav</span>
+      <a class="btn secondary" href="https://github.com/ItsLimitlezz/soundperf-site/releases/download/signals-v1/test-signal-left.wav" download>Download</a>
+      <span class="why">
+        Left channel only, right channel digitally silent. For finding out which side is the problem.
+        <span class="meta" data-meta></span>
+      </span>
+    </div>
+
+    <div class="file" data-file="test-signal-right.wav">
+      <span class="name">test-signal-right.wav</span>
+      <a class="btn secondary" href="https://github.com/ItsLimitlezz/soundperf-site/releases/download/signals-v1/test-signal-right.wav" download>Download</a>
+      <span class="why">
+        Right channel only. Measure one side, then the other, then compare.
+        <span class="meta" data-meta></span>
+      </span>
+    </div>
+
+  </div>
+
+  <div class="warn">
+    <p><strong>The MP3 is a fallback. Use it only if the head unit refuses WAV.</strong></p>
+    <p>
+      Pink noise is the worst case input for a perceptual codec. The encoder's entire job is to discard
+      content it believes is masked, and noise is nothing but such content. Plenty of encoders also
+      lowpass somewhere between 16 and 19 kHz, and every user of such a file would measure a cliff at
+      the top of the spectrum and blame their tweeters.
+    </p>
+    <p>
+      The file below was encoded at 320 kbps and then measured against the WAV it came from. It holds
+      to within 0.1 dB from 20 Hz to 20 kHz and rolls off above 20.5 kHz, so this particular file is
+      clean. What we cannot see is the decoder inside your head unit. Tell the app you used MP3 and it
+      will lower its confidence in the top octave, because it has no way to check what actually came
+      out of the speakers.
+    </p>
+    <p style="margin-top:1.1rem">
+      <a class="btn secondary" href="https://github.com/ItsLimitlezz/soundperf-site/releases/download/signals-v1/test-signal-320.mp3" download>Download test-signal-320.mp3</a>
+      <span class="meta" data-file="test-signal-320.mp3" data-meta style="margin-left:0.75rem"></span>
+    </p>
+  </div>
+
+  <h2>Putting it on a USB stick.</h2>
+  <p class="muted">
+    Most of the trouble people have here is the stick, not the file.
+  </p>
+  <ul class="plain">
+    <li><strong>Format the stick as FAT32.</strong> Many head units cannot read exFAT or NTFS, and most
+      of them say nothing useful when they fail. They just show an empty folder.</li>
+    <li><strong>Keep the filename short.</strong> Some units still choke on long names. Renaming it to
+      <code>test.wav</code> is fine. The app does not care what the file is called.</li>
+    <li><strong>Put it in the root directory.</strong> Not inside a folder. Nested folders are the second
+      most common reason a unit shows nothing.</li>
+    <li><strong>One file at a time.</strong> If the stick has music on it too, the unit may shuffle or
+      autoplay something else halfway through.</li>
+  </ul>
+
+  <h2>What is inside the file.</h2>
+  <table class="spec">
+    <tr><th>Part</th><th>Length</th><th>What it is for</th></tr>
+    <tr><td>Silence</td><td class="mono">3 s</td><td>Lets you get in the car and shut the door.</td></tr>
+    <tr><td>Level tone</td><td class="mono">10 s</td><td>Pink noise limited to 500 Hz to 2 kHz. Set the volume here.</td></tr>
+    <tr><td>Silence</td><td class="mono">2 s</td><td></td></tr>
+    <tr><td>Marker</td><td class="mono">0.9 s</td><td>1 kHz, 2 kHz, 4 kHz. The app hears this and starts recording.</td></tr>
+    <tr><td>Pink noise</td><td class="mono">60 s</td><td>One microphone position. Repeated five times.</td></tr>
+  </table>
+  <p class="muted small">
+    Everything sits at 20 dB below full scale. That is not a mastering choice. Many head units apply
+    soft limiting or loudness normalisation to USB playback, and a hot signal triggers it. You would then
+    be measuring the limiter rather than the speakers, and nothing in the result would tell you so.
+  </p>
+
+  <h2>Playing it some other way.</h2>
+  <p class="muted">
+    Any of these are fine, because none of them are the phone doing the measuring.
+  </p>
+  <ul class="plain">
+    <li>SD card in the head unit.</li>
+    <li>AUX cable from a laptop or a second phone.</li>
+    <li>CarPlay or Android Auto from a second phone.</li>
+    <li>Bluetooth from a second phone. This is fine. That phone has no microphone open.</li>
+    <li>The app's own generator mode on a second phone, which needs no file at all.</li>
+  </ul>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span class="endorse">Endorsed by <strong>FormFactor Performance</strong>.</span>
+    <span>Product name not final.</span>
+  </div>
+</footer>
+
+<script src="assets/download.js"></script>
+</body>
+</html>

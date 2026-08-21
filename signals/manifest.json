@@ -1,0 +1,157 @@
+{
+  "assetBaseUrl": "https://github.com/ItsLimitlezz/soundperf-site/releases/download/signals-v1",
+  "files": [
+    {
+      "bytes": 62880044,
+      "channels": "both",
+      "durationSeconds": 327.5,
+      "filename": "test-signal-48k.wav",
+      "purpose": "Preferred. Use this one unless the head unit refuses it.",
+      "sampleRate": 48000
+    },
+    {
+      "bytes": 57771044,
+      "channels": "both",
+      "durationSeconds": 327.5,
+      "filename": "test-signal-44k.wav",
+      "purpose": "For older head units that will not play 48 kHz.",
+      "sampleRate": 44100
+    },
+    {
+      "bytes": 62880044,
+      "channels": "leftOnly",
+      "durationSeconds": 327.5,
+      "filename": "test-signal-left.wav",
+      "purpose": "Left channel only. For diagnosing one side at a time.",
+      "sampleRate": 48000
+    },
+    {
+      "bytes": 62880044,
+      "channels": "rightOnly",
+      "durationSeconds": 327.5,
+      "filename": "test-signal-right.wav",
+      "purpose": "Right channel only. For diagnosing one side at a time.",
+      "sampleRate": 48000
+    },
+    {
+      "bytes": 13102080,
+      "channels": "both",
+      "durationSeconds": 327.5,
+      "filename": "test-signal-320.mp3",
+      "purpose": "Fallback only, for head units that refuse WAV.",
+      "sampleRate": 48000
+    }
+  ],
+  "noiseSegmentSeconds": 60,
+  "rmsDbFS": -20,
+  "segmentCount": 5,
+  "timeline": [
+    {
+      "durationSeconds": 3,
+      "kind": "silence",
+      "label": "Silence",
+      "startSeconds": 0
+    },
+    {
+      "durationSeconds": 10,
+      "kind": "levelTone",
+      "label": "Level tone",
+      "startSeconds": 3
+    },
+    {
+      "durationSeconds": 2,
+      "kind": "silence",
+      "label": "Silence",
+      "startSeconds": 13
+    },
+    {
+      "durationSeconds": 0.9,
+      "kind": "marker",
+      "label": "Marker",
+      "startSeconds": 15
+    },
+    {
+      "durationSeconds": 60,
+      "kind": "noise",
+      "label": "Position 1",
+      "position": 1,
+      "startSeconds": 15.9
+    },
+    {
+      "durationSeconds": 2,
+      "kind": "silence",
+      "label": "Silence",
+      "startSeconds": 75.9
+    },
+    {
+      "durationSeconds": 0.9,
+      "kind": "marker",
+      "label": "Marker",
+      "startSeconds": 77.9
+    },
+    {
+      "durationSeconds": 60,
+      "kind": "noise",
+      "label": "Position 2",
+      "position": 2,
+      "startSeconds": 78.8
+    },
+    {
+      "durationSeconds": 2,
+      "kind": "silence",
+      "label": "Silence",
+      "startSeconds": 138.8
+    },
+    {
+      "durationSeconds": 0.9,
+      "kind": "marker",
+      "label": "Marker",
+      "startSeconds": 140.8
+    },
+    {
+      "durationSeconds": 60,
+      "kind": "noise",
+      "label": "Position 3",
+      "position": 3,
+      "startSeconds": 141.7
+    },
+    {
+      "durationSeconds": 2,
+      "kind": "silence",
+      "label": "Silence",
+      "startSeconds": 201.7
+    },
+    {
+      "durationSeconds": 0.9,
+      "kind": "marker",
+      "label": "Marker",
+      "startSeconds": 203.7
+    },
+    {
+      "durationSeconds": 60,
+      "kind": "noise",
+      "label": "Position 4",
+      "position": 4,
+      "startSeconds": 204.6
+    },
+    {
+      "durationSeconds": 2,
+      "kind": "silence",
+      "label": "Silence",
+      "startSeconds": 264.6
+    },
+    {
+      "durationSeconds": 0.9,
+      "kind": "marker",
+      "label": "Marker",
+      "startSeconds": 266.6
+    },
+    {
+      "durationSeconds": 60,
+      "kind": "noise",
+      "label": "Position 5",
+      "position": 5,
+      "startSeconds": 267.5
+    }
+  ]
+}

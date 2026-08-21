@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SoundPerf. Test signal for car and room tuning.</title>
+<meta name="description" content="The test signal for measuring a sound system at the listening position. Play it in the browser or put it on a USB stick. The app does the measuring.">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="mark"></span>SoundPerf<span class="provisional">working name</span></a>
+    <nav class="site">
+      <a href="index.html" class="current">What this is</a>
+      <a href="play.html">Play</a>
+      <a href="download.html">Download</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <h1>Measure what your system actually does.</h1>
+  <p class="lead">
+    This page serves the test signal. You play it through the system you want to tune, and the app
+    listens at the seat where you actually sit. It compares what it hears to a target and tells you
+    what to set each band on your head unit to. That is the whole product.
+  </p>
+
+  <div class="grid2">
+    <a class="panel" href="play.html" style="color: inherit;">
+      <h3 style="margin-top:0">Play it here.</h3>
+      <p class="muted small" style="margin:0">
+        Straight from the browser, through an AUX cable or Bluetooth from a laptop. Shows you which
+        position is running so you know when to move the phone.
+      </p>
+    </a>
+    <a class="panel" href="download.html" style="color: inherit;">
+      <h3 style="margin-top:0">Or take it with you.</h3>
+      <p class="muted small" style="margin:0">
+        WAV files for a USB stick or an SD card. This is the path most head units like best.
+      </p>
+    </a>
+  </div>
+
+  <h2>How the measurement works.</h2>
+  <ol class="steps">
+    <li>
+      <strong>The signal plays from something that is not your phone.</strong>
+      A USB stick, an SD card, a laptop on AUX, or a second phone. The measuring phone has to keep
+      its microphone free.
+    </li>
+    <li>
+      <strong>The app hears the marker and starts on its own.</strong>
+      Three short tones before each burst of noise. No pairing, no countdown, no shouting across the car.
+    </li>
+    <li>
+      <strong>You move through five positions.</strong>
+      One measurement at one point is mostly interference patterns. Five around head height average
+      out to something that describes the system rather than the exact spot you were holding the phone.
+    </li>
+    <li>
+      <strong>The app gives you numbers to type in.</strong>
+      One value per band. It also tells you the best result your hardware can reach, so you know
+      when to stop turning knobs.
+    </li>
+  </ol>
+
+  <h2>What this page will not do.</h2>
+  <p class="muted">
+    It will not measure anything. A browser cannot turn off the automatic gain control on a phone
+    microphone, and that processing flattens level differences over time, which is exactly the thing
+    being measured. A web page would produce a smooth, believable, mostly fictional curve with no
+    error to catch it. So this page plays the signal and stops there.
+  </p>
+
+  <hr class="rule">
+
+  <h2>Get the app.</h2>
+  <p class="muted">
+    Native iOS, because the measurement needs an audio session a browser cannot ask for.
+    The app carries its own copy of this signal, so it works with no connection to this site.
+  </p>
+  <p><a class="btn" href="#">App Store</a> <span class="small muted" style="margin-left:0.75rem">Link goes live at release.</span></p>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span class="endorse">Endorsed by <strong>FormFactor Performance</strong>.</span>
+    <span>Product name not final.</span>
+  </div>
+</footer>
+
+</body>
+</html>

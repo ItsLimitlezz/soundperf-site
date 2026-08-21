@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Play the test signal. SoundPerf.</title>
+<meta name="description" content="Play the test signal in the browser. Shows which of the five positions is running.">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="mark"></span>SoundPerf<span class="provisional">working name</span></a>
+    <nav class="site">
+      <a href="index.html">What this is</a>
+      <a href="play.html" class="current">Play</a>
+      <a href="download.html">Download</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <h1>Play the signal.</h1>
+  <p class="lead">
+    Connect this machine to the system you are tuning. AUX, Bluetooth, or CarPlay all work, because
+    this device is not the one doing the measuring. Then press play and pick up your phone.
+  </p>
+
+  <div class="panel player">
+    <button class="play-btn" id="toggle" aria-label="Play the test signal">
+      <svg id="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+    </button>
+    <div class="play-label" id="label">Press to start. Five minutes and 28 seconds.</div>
+
+    <div class="now">
+      <div class="phase" id="phase">Ready.</div>
+      <div class="detail" id="detail">Streams the 48 kHz WAV. About 60 MB.</div>
+    </div>
+
+    <div class="track" id="track" aria-hidden="true"></div>
+    <div class="timebar"><span id="elapsed">0:00</span><span id="remaining" class="muted">5:28</span></div>
+
+    <audio id="audio" preload="none" src="https://github.com/ItsLimitlezz/soundperf-site/releases/download/signals-v1/test-signal-48k.wav"></audio>
+  </div>
+
+  <h2>Set the level first.</h2>
+  <p class="muted">
+    The signal opens with ten seconds of midrange noise. That is there so you can set volume once and
+    have it still be right when the measurement starts. Both parts sit at the same loudness.
+  </p>
+  <ul class="plain">
+    <li>Turn it up until it is clearly louder than the room, and comfortable to sit next to. Loud
+      conversation is about right.</li>
+    <li>Do not chase the last few decibels. A signal that clips at the microphone is thrown away by
+      the app, and clipped bass looks exactly like a speaker running out of travel.</li>
+    <li>Once it is set, leave it alone. Every position has to be measured at the same volume.</li>
+  </ul>
+
+  <h2>Before you press play.</h2>
+  <ul class="plain">
+    <li>Turn off loudness, bass boost, and any DSP preset on the head unit. Set every EQ band to zero.</li>
+    <li>Engine off. Doors shut. Windows up. Fan off.</li>
+    <li>The app does the rest. It listens for the marker tones and starts recording on its own.</li>
+  </ul>
+
+  <div class="warn" style="margin-top:2rem">
+    <p><strong>Play this on one device. Measure on another.</strong></p>
+    <p>
+      Opening a microphone on a phone that is also sending Bluetooth audio drops the link to the narrowband
+      call profile. The measurement then runs through an 8 kHz pipe and reports no error at all. It just
+      shows a cliff at the top of the spectrum that looks like a tweeter problem. Keep the two jobs on two devices.
+    </p>
+  </div>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span class="endorse">Endorsed by <strong>FormFactor Performance</strong>.</span>
+    <span>Product name not final.</span>
+  </div>
+</footer>
+
+<script src="assets/play.js"></script>
+</body>
+</html>
