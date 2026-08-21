@@ -27,6 +27,10 @@
     Connect this machine to the system you are tuning. AUX, Bluetooth, or CarPlay all work, because
     this device is not the one doing the measuring. Then press play and pick up your phone.
   </p>
+  <p class="muted">
+    This player is the full five position signal, for measuring a system at the seat. If you only
+    want to check a single speaker, there is an unbroken looping version further down.
+  </p>
 
   <div class="panel player">
     <button class="play-btn" id="toggle" aria-label="Play the test signal">
@@ -43,6 +47,26 @@
     <div class="timebar"><span id="elapsed">0:00</span><span id="remaining" class="muted">5:28</span></div>
 
     <audio id="audio" preload="none" src="https://github.com/ItsLimitlezz/soundperf-site/releases/download/signals-v1/test-signal-48k.wav"></audio>
+  </div>
+
+  <h2>Just checking one speaker?</h2>
+  <p class="muted">
+    Then you do not want any of the structure below. Speaker check in the app is live: you hold the
+    phone at one speaker, up close, and read it as you adjust. Nothing has to start and there is
+    nowhere to move to, so the markers and the gaps would only be holes in the reading.
+  </p>
+  <p class="muted">
+    This is one unbroken stretch of pink noise instead. It loops with no seam, so leave it running
+    for as long as you need.
+  </p>
+  <div class="panel" style="margin: 1.5rem 0;">
+    <audio id="loop" controls loop preload="none" style="width: 100%;"
+           src="https://github.com/ItsLimitlezz/soundperf-site/releases/download/signals-v1/test-signal-continuous.wav"></audio>
+    <p class="small muted" style="margin: 0.75rem 0 0;">
+      65 seconds, looping. 12 MB.
+      <a href="https://github.com/ItsLimitlezz/soundperf-site/releases/download/signals-v1/test-signal-continuous.wav" download>Download it</a>
+      if you would rather play it from the system itself.
+    </p>
   </div>
 
   <h2>The five positions.</h2>

@@ -34,6 +34,14 @@
       "sampleRate": 48000
     },
     {
+      "bytes": 12582956,
+      "channels": "both",
+      "durationSeconds": 65.5,
+      "filename": "test-signal-continuous.wav",
+      "purpose": "Unbroken pink noise that loops seamlessly. For Speaker check, where there is nothing to start and nothing to move between.",
+      "sampleRate": 48000
+    },
+    {
       "bytes": 13102080,
       "channels": "both",
       "durationSeconds": 327.5,
